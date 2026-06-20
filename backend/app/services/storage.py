@@ -1,13 +1,20 @@
 import sqlite3
 import json
 import uuid
+import os
 from pathlib import Path
 from datetime import date
 from typing import Optional
 
 from app.models import ActivityLog, UserProfile
 
-DATA_DIR = Path(__file__).resolve().parent.parent.parent / "data"
+# Use /tmp directory for Vercel (read-only filesystem)
+# Keep local directory for development
+if os.environ.get("VERCEL") or os.environ.get("VERCEL_ENV"):
+    DATA_DIR = Path("/tmp")
+else:
+    DATA_DIR = Path(__file__).resolve().parent.parent.parent / "data"
+
 DB_FILE = DATA_DIR / "ecoguide.db"
 PROFILE_FILE = DATA_DIR / "profile.json"
 ACTIVITIES_FILE = DATA_DIR / "activities.json"
