@@ -24,4 +24,7 @@ Thumbs.db
 
 # Data (local dev only)
 backend/data/*.json
+backend/data/*.db
 !backend/data/.gitkeep
+
+.vercel
