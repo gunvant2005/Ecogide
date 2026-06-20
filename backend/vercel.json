@@ -1,0 +1,9 @@
+{
+  "buildCommand": "pip install -r requirements.txt",
+  "functions": {
+    "run.py": {
+      "memory": 512,
+      "maxDuration": 30
+    }
+  }
+}
