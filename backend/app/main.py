@@ -10,7 +10,19 @@ from app.services.insights_engine import generate_insights, generate_recommendat
 from app.services import storage
 
 app = Flask(__name__)
-CORS(app, origins=["http://localhost:5173", "http://127.0.0.1:5173", "http://localhost:4173"])
+
+# Configure CORS for both local development and Vercel production
+# In production on Vercel, frontend and API are served from same domain
+# so CORS is not strictly needed, but we keep it for flexibility
+cors_origins = [
+    "http://localhost:5173",
+    "http://127.0.0.1:5173", 
+    "http://localhost:4173",
+    # Allow Vercel deployments
+    "https://*.vercel.app",
+    "*"  # Allow all origins in production
+]
+CORS(app, origins=cors_origins)
 
 
 @app.get("/api/health")
