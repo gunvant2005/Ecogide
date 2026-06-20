@@ -15,12 +15,5 @@
   "env": {
     "FLASK_ENV": "production",
     "PYTHONUNBUFFERED": "1"
-  },
-  "functions": {
-    "api/index.py": {
-      "runtime": "python@3.9",
-      "memory": 512,
-      "maxDuration": 30
-    }
   }
 }
