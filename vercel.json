@@ -2,18 +2,19 @@
   "buildCommand": "pip install --break-system-packages -r backend/requirements.txt && cd frontend && npm install && npm run build",
   "installCommand": "npm install --prefix frontend",
   "outputDirectory": "frontend/dist",
-  "routes": [
+  "rewrites": [
     {
-      "src": "/api/(.*)",
-      "dest": "/api/index.py"
+      "source": "/api/(.*)",
+      "destination": "/api/index"
     },
     {
-      "src": "/(.*)",
-      "dest": "/index.html"
+      "source": "/(.*)",
+      "destination": "/index.html"
     }
   ],
   "env": {
     "FLASK_ENV": "production",
-    "PYTHONUNBUFFERED": "1"
+    "PYTHONUNBUFFERED": "1",
+    "VERCEL": "1"
   }
 }
