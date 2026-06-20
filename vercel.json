@@ -1,5 +1,5 @@
 {
-  "buildCommand": "pip install -r backend/requirements.txt && cd frontend && npm install && npm run build",
+  "buildCommand": "pip install --break-system-packages -r backend/requirements.txt && cd frontend && npm install && npm run build",
   "installCommand": "npm install --prefix frontend",
   "outputDirectory": "frontend/dist",
   "routes": [
